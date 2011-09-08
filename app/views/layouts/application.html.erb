@@ -4,6 +4,7 @@
   <title>PusherMap</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <script src="http://code.jquery.com/jquery-1.6.3.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -20,5 +21,22 @@
 
     <%= yield %>
   </div>
+  
+  <script>
+    $("#nav").click(function(ev) {
+      ev = ev || window.event;
+      var el = $(ev.srcElement || ev.target);
+      if(el.attr("target")) { // not root
+        $.ajax({
+          url: el.attr("href"),
+          success: function(){
+            
+          }
+        });
+        
+        return false;
+      }
+    });
+  </script>
 </body>
 </html>

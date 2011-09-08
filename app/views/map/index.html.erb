@@ -12,20 +12,25 @@
 		map = new google.maps.Map(document.getElementById("map_canvas"),
 		myOptions);
 		
-		
-
-	  
 	});
+	
+	// TODO: remove this if pushed to production
+	Pusher.log = function(msg) {
+	  if(console && console.log) {
+	    console.log(msg);
+	  }
+	};
+	
 	var pusher = new Pusher('2681b178bf9f5e52bc9f');
   var channel = pusher.subscribe('ip_logger');
   channel.bind('latitude', function(data){
       // alert(data);
-      var LatLng = new google.maps.LatLng(data); // want to change this for whatever ip is coming in. 
-          var marker = new google.maps.Marker({
-            animation: google.maps.Animation.DROP,
-            position:LatLng,
-            map:map
-          });
+      var LatLng = new google.maps.LatLng(data.lat, data.lng); // want to change this for whatever ip is coming in. 
+      var marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position:LatLng,
+        map:map
+      });
     });
 
 </script>

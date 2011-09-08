@@ -1,0 +1,28 @@
+// Place all the styles related to the map controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "960.css.scss";
+
+#wrapper{
+	@include grid_container;
+}
+#Goals {
+	@include grid(12);
+}
+#map_canvas {
+	@include grid(12);
+	height: 300px;
+}
+#nav {
+	@include grid(12);
+	ul {
+		
+		list-style-type: none;
+		
+		li {
+			float: left;
+			margin: 0 10px;
+		}
+	}
+}

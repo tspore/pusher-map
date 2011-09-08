@@ -1,0 +1,83 @@
+/*-----------------------------------------------------
+  960 Grid System ~ Core CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+-------------------------------------------------------*/
+
+/* Grid Settings
+---------------------------*/
+// 12-column grid
+$columns: 12;     // Number of columns
+$col_width: 60px; // Column width
+$gutter: 20px;    // Gutter width
+
+// 16-column grid
+//$columns: 16;
+//$col_width: 40px;
+//$gutter: 20px;
+
+// 24-column grid
+//$columns: 24;
+//$col_width: 30px;
+//$gutter: 10px;
+
+$cell_width: $col_width + $gutter;
+
+body {
+  min-width: 960px;
+}
+
+/* `Containers
+----------------------------------------------------------------------------------------------------*/
+@mixin grid_container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+/* `Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+@mixin alpha {
+  margin-left: 0;
+}
+
+@mixin omega {
+  margin-right: 0;
+}
+
+/* `Grid >> Columns
+----------------------------------------------------------------------------------------------------*/
+@mixin grid($i) {
+  display: inline;
+  float: left;
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+  width: $col_width * $i + $gutter * ($i - 1);
+}
+
+/* `Prefix Extra Space
+----------------------------------------------------------------------------------------------------*/
+@mixin prefix($i) {
+  padding-left: $cell_width * $i
+}
+
+/* `Suffix Extra Space
+----------------------------------------------------------------------------------------------------*/
+@mixin suffix($i) {
+  padding-right: $cell_width * $i;
+}
+
+/* `Push Space
+----------------------------------------------------------------------------------------------------*/
+@mixin push($i) {
+  position: relative;
+  left: $cell_width * $i;
+}
+
+/* `Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+@mixin pull($i) {
+  position: relative;
+  left: 0 - ($cell_width * $i);
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PusherMap</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="nav">
+      <ul>
+        <li>Click a link to log ip:</li>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "los_angeles_ip ", los_angeles_path, :target => "_blank" %></li>
+        <li><%= link_to "New_York_ip", new_york_path, :target => "_blank" %></li>
+        <li><%= link_to "Your_ip", your_ip_path, :target => "_blank" %></li>
+      </ul>
+    </div>
+
+    <%= yield %>
+  </div>
+</body>
+</html>
